@@ -47,9 +47,25 @@ int main(int argc, char** argv) {
             case 'L':
                 printAddresses();
                 break;
+            case 'R':
+                readFromFile();
+                break;
+            case 'S':
+                saveToFile();
+                break;
+            case '1':
+                sortAddresses(byName);
+                break;
+            case '2':
+                sortAddresses(byStreet);
+                break;
+            case '3':
+                sortAddresses(byCity);
+                break;
 
         }
     } while (c != 'Q');
+    
     return (EXIT_SUCCESS);
 }
 
@@ -60,4 +76,12 @@ void printAddresses() {
     for(int i = 0; i < size; i++)
         printAddress(*(allAddresses + i));
     
+}
+
+void sortAddresses(int(*sortFunction)(const void * elem1, const void *elem2)) {
+    int size;
+    AddressPtr_t* allAddresses;
+    size = sort(&allAddresses, sortFunction);
+    for(int i = 0; i < size; i++)
+        printAddress(*(allAddresses + i));
 }

@@ -27,7 +27,19 @@ typedef address_t* AddressPtr_t;
 
 void insertNewAddress(AddressPtr_t* newAddress);
 
-void printAddress(AddressPtr_t addr); 
+void printAddress(AddressPtr_t addr);
+
+void saveToFile();
+
+void readFromFile();
+
+int sort(AddressPtr_t** sortedAddresses, int(*sortFuntion)(const void * elem1, const void *elem2));
+
+int byName(const AddressPtr_t* elem1, const AddressPtr_t* elem2);
+
+int byStreet(const AddressPtr_t* elem1, const AddressPtr_t* elem2);
+
+int byCity(const AddressPtr_t* elem1, const AddressPtr_t* elem2);
 
 #endif /* ADDRESSVERWALTUNG_ADDRESS_H */
 
